@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yadda Ake Samun Kuɗi da Wayoyin Hannu ta Intanet</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px auto;
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,192C672,181,768,139,864,128C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* Features Section */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 60px 20px;
+            gap: 30px;
+        }
+        
+        .feature-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #4a6491;
+        }
+        
+        .feature-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .feature-text {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            background: #f0f4f8;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .benefits h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+        
+        .benefits-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .benefit-item {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .benefit-number {
+            background: #4a6491;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+        }
+        
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff9f43;
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 159, 67, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background: #ff7b00;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 159, 67, 0.6);
+        }
+        
+        /* Mobile Animation */
+        .mobile-animation {
+            width: 200px;
+            height: 400px;
+            margin: 40px auto;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .mobile-screen {
+            width: 100%;
+            height: 100%;
+            background: #2c3e50;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .mobile-notch {
+            width: 50%;
+            height: 25px;
+            background: #2c3e50;
+            position: absolute;
+            top: 0;
+            left: 25%;
+            border-radius: 0 0 15px 15px;
+            z-index: 2;
+        }
+        
+        .screen-content {
+            position: absolute;
+            top: 25px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .currency-icons {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: #27ae60;
+            display: flex;
+            gap: 15px;
+            flex-direction: column;
+        }
+
+        .currency-icons span {
+            animation: currencyFlow 3s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        .currency-icons .naira {
+            animation-delay: 0s;
+        }
+        .currency-icons .dollar {
+            animation-delay: 1s;
+        }
+        .currency-icons .euro {
+            animation-delay: 2s;
+        }
+        
+        @keyframes currencyFlow {
+            0% { opacity: 0; transform: translateY(20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(5deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-section {
+            background: #fdf3f3;
+            color: #a44a4a;
+            border-top: 5px solid #d4a8a8;
+            padding: 40px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .disclaimer-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #8c3b3b;
+        }
+        
+        .disclaimer-section p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .header, .benefits, .cta-section {
+                padding: 40px 20px;
+            }
+            
+            .features {
+                padding: 40px 15px;
+            }
+            
+            .feature-card {
+                min-width: 100%;
+            }
+            
+            .benefit-item {
+                min-width: 100%;
+            }
+            
+            .mobile-animation {
+                width: 150px;
+                height: 300px;
+            }
+
+            .disclaimer-section {
+                padding: 30px 20px;
+            }
+            
+            .disclaimer-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="header">
+            <div class="header-content">
+                <h1>Yadda Ake Samun Kuɗi da Wayoyin Hannu ta Intanet</h1>
+                <p class="subtitle">Shin kuna son koyo yadda ake samun kuɗi ta hanyar amfani da wayar hannu kawai? A cikin wannan shiri, za ku koyi hanyoyin da za ku bi don samun kuɗi a yanar gizo.</p>
+                
+                <div class="mobile-animation">
+                    <div class="mobile-screen">
+                        <div class="mobile-notch"></div>
+                        <div class="screen-content">
+                            <div class="currency-icons">
+                                <span class="naira">₦</span>
+                                <span class="dollar">$</span>
+                                <span class="euro">€</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">Aiki Daga Gida</h3>
+                <p class="feature-text">Kuna iya yin aiki daga gida kuma ku sami kuɗi ba tare da barin gida ba. Duk abin da kuke buƙata wayar hannu ce da haɗin intanet.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🕒</div>
+                <h3 class="feature-title">Sarrafa Lokacinku</h3>
+                <p class="feature-text">Ku zaɓi lokacin da yake dacewa da ku don yin aiki. Ba wani tsarin lokaci mai tsauri, ku yi aiki a lokacin da yake dacewa da ku.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Haɓaka Damarku</h3>
+                <p class="feature-text">Koyo da sabbin fasahohi zai buɗe maku ƙofofin dama da yawa. Za ku iya haɓaka ƙwarewar ku yayin da kuke samun kuɗi.</p>
+            </div>
+        </section>
+        
+        <section class="benefits">
+            <h2>Fa'idodin Samun Kuɗi Ta Intanet</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-number">1</div>
+                    <p>Ba ku buƙatar ƙwarewa ta musamman don farawa. Za a koya muku duk abin da kuke buƙata.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-number">2</div>
+                    <p>Kuna iya farawa da ƙaramin kuɗi, kuma haɓaka a hankali yayin da kuke ƙara ƙwarewa.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-number">3</div>
+                    <p>Za ku iya yin aiki daga ko'ina - gida, ofis, ko wani wuri da kuka zaɓa.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2 class="cta-title">Shin kun Shirya Koyo?</h2>
+            <p class="cta-text">Wannan Ajin Kyauta ne zan koyarda shi Amma se wadanda suke da suke sun shirya koya Dan Ajin na musamman ne kuma inason mutane masu seriousness da himma .</p>
+            <a href="https://chat.whatsapp.com/FXa9IWVWGUH72G0o6b8uED?mode=ems_copy_t" class="cta-button">Na shirya koya</a>
+        </section>
+
+        <section class="disclaimer-section">
+            <h3>Disclaimer (Ƙarin Bayani)</h3>
+            <p>Wannan bayanin “Yadda Ake Samun Kuɗi Online da Wayar Hannu” domin ilimi da faɗakarwa kawai aka samar da shi. Ba mu bayar da tabbacin cewa kowane dabaru ko hanyoyin da aka bayyana za su bada sakamako iri ɗaya ga kowa ba. Nasarar samun kuɗi online na iya bambanta bisa ga ƙoƙari, lokaci, fasaha, da yanayin mutum.</p>
+            <p>Ba mu da alhakin asara, matsaloli, ko sakamako mara kyau da zai iya tasowa daga amfani da bayanan da ke nan. Kafin ka saka kuɗi ko ka yi wani muhimmin mataki, muna ba ka shawara ka yi bincike naka sosai kuma ka nemi shawarar kwararru idan ya zama dole.</p>
+        </section>
+    </div>
+
+    <script>
+        // Add some interactive effects to feature cards
+        const featureCards = document.querySelectorAll('.feature-card');
+        featureCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
